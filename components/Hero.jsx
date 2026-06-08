@@ -163,9 +163,9 @@ export default function Hero({ start = true }) {
           </motion.div>
         </div>
 
-        <motion.div className="metrics" {...rise(0.95)}>
+        <motion.div className="metrics" {...rise(0.95)} style={{ display: 'flex', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap', borderTop: '1px solid var(--rule, rgba(244,245,247,0.12))', paddingTop: 26, marginTop: 48 }}>
           {[{ v: 10, suf: '+', l: 'Enterprise products' }, { v: 8, suf: '', l: 'Operational domains' }, { v: 3, suf: '', l: 'Flagship systems' }, { v: 28542, suf: '', l: 'Workforce on ARC' }].map((m, i) => (
-            <div className="metric" key={i}>
+            <div className="metric" key={i} style={{ flex: '1 1 0', minWidth: 110 }}>
               <div className="font-mono num"><Counter to={m.v} suffix={m.suf} start={start} /></div>
               <div className="label mlabel">{m.l}</div>
             </div>
