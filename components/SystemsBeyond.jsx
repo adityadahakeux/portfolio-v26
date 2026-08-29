@@ -10,7 +10,7 @@ const SYSTEMS = [
   { i: '01', name: 'Wealth Management Platform', domain: 'Fintech · EBIXCash', year: '2024', logo: '/logos/ebixcash.png',
     insight: 'The decision surface for relationship managers, where each interface choice carries direct financial consequence for high-net-worth clients.',
     meta: ['Wealth · capital markets', 'Web · advisor console', 'Product design'] },
-  { i: '02', name: 'Amex Legal Dashboard', domain: 'Legal Tech', year: '2023', logo: '/logos/amex.svg',
+  { i: '02', name: 'Enterprise Legal Case Management', domain: 'Legal Tech', year: '2023', logo: null,
     insight: 'Domain vocabulary had to be learned before wireframing began. Case-state logic determined the architecture, not UI patterns.',
     meta: ['Legal operations', 'Web · case management', 'UX + research'] },
   { i: '03', name: 'Secure Debt', domain: 'Recovery Operations', year: '2022', logo: '/logos/securedebt.png',
