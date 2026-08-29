@@ -2,7 +2,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-// VENTURES — direct client engagements taken on independently.
+// ENGAGEMENTS — direct client engagements taken on independently.
 // Deliberately not labelled "freelance": the framing is client work and
 // ownership, which is what a hiring manager is reading it for. The heading
 // must not imply self-set side projects — these were paid and shipped.
@@ -214,7 +214,7 @@ export default function Ventures() {
           transition={{ duration: 0.7, ease: EASE }}
           style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid var(--rule)', paddingBottom: 20, marginBottom: 42, flexWrap: 'wrap', gap: 12 }}
         >
-          <span className="label" style={{ color: 'var(--accent)' }}>Ventures</span>
+          <span className="label" style={{ color: 'var(--accent)' }}>Engagements</span>
           <span className="label">Direct client engagements · three products</span>
         </motion.div>
 
