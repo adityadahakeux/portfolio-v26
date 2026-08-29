@@ -2,9 +2,10 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-// VENTURES — work taken on independently, outside the day job.
-// Deliberately not labelled "freelance": the framing is ownership and range,
-// which is what a hiring manager is actually reading it for.
+// VENTURES — direct client engagements taken on independently.
+// Deliberately not labelled "freelance": the framing is client work and
+// ownership, which is what a hiring manager is reading it for. The heading
+// must not imply self-set side projects — these were paid and shipped.
 // Each venture carries its own accent so the three read as separate products
 // rather than one portfolio grid. Screens are shown, not described.
 // Fill the `shots` array for a venture and its placeholder disappears.
@@ -214,7 +215,7 @@ export default function Ventures() {
           style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid var(--rule)', paddingBottom: 20, marginBottom: 42, flexWrap: 'wrap', gap: 12 }}
         >
           <span className="label" style={{ color: 'var(--accent)' }}>Ventures</span>
-          <span className="label">Built independently · three products</span>
+          <span className="label">Direct client engagements · three products</span>
         </motion.div>
 
         <motion.h2
@@ -222,8 +223,8 @@ export default function Ventures() {
           initial={{ opacity: 0, y: 18 }} animate={headIn ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.08, ease: EASE }}
         >
-          Work nobody assigned me.{' '}
-          <span style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Start to ship, alone.</span>
+          Client work, owned end to end.{' '}
+          <span style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Research through to shipped build.</span>
         </motion.h2>
 
         <div className="vt-list">
