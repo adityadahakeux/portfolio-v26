@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "cyberlensai",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "/Users/adityadahake/Downloads/cyberlensai"],
+      "port": 3001,
+      "autoPort": true
+    },
+    {
+      "name": "aditya-ashwini-invite",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "/Users/adityadahake/Downloads/aditya-ashwini-invite"],
+      "port": 3010
+    }
+  ]
+}

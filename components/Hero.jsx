@@ -99,7 +99,7 @@ export default function Hero({ start = true }) {
           <div className="col-text">
             <motion.div className="pill" {...rise(0.1)}>
               <span className="statusdot" />
-              <span className="font-mono pilltxt">UI/UX &amp; Product Designer · India · Available</span>
+              <span className="font-mono pilltxt">Enterprise Product Designer · India · Available</span>
             </motion.div>
 
             <motion.h1 className="head" {...rise(0.25)} style={{ fontSize: 'clamp(2.4rem, 6vw, 5.2rem)', fontWeight: 600, lineHeight: 1.02, letterSpacing: '-0.035em', color: 'var(--ink, #F4F5F7)', maxWidth: '18ch', marginBottom: 28 }}>
@@ -116,7 +116,7 @@ export default function Hero({ start = true }) {
             </motion.div>
 
             <motion.p className="lede" {...rise(0.72)}>
-              I&apos;m a Product Designer (UI/UX) who makes complex software simple to use — the dashboards, apps, and everyday tools that run operations, finance, and field teams. I design the whole system, not just the screens. Currently at EBIXCash.
+              Complex organisations run on products most designers never see. At EBIXCash I design across wealth management, capital markets, and custody, where interface decisions carry real financial consequence. Before that: field operations, government platforms, IoT, and embedded finance. The problems differ — the method doesn&apos;t.
             </motion.p>
 
             <motion.div className="cta" {...rise(0.86)}>
