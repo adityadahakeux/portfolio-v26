@@ -12,7 +12,7 @@ import ProjectARC from '@/components/ProjectARC';
 import ProjectINDHI from '@/components/ProjectINDHI';
 import TruMac from '@/components/ProjectTruMac';
 import SystemsBeyond from '@/components/SystemsBeyond';
-import About from '@/components/About';
+import MethodProcess from '@/components/MethodProcess';
 import TrustBand from '@/components/TrustBand';
 import Contact from '@/components/Contact';
 
@@ -35,7 +35,7 @@ export default function Home() {
             <Unwrap><ProjectINDHI /></Unwrap>
             <TruMac />
             <Unwrap><SystemsBeyond /></Unwrap>
-            <About />
+            <MethodProcess />
             <TrustBand />
             <Contact />
           </main>

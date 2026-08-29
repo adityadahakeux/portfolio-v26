@@ -228,3 +228,37 @@ h1, h2, h3, h4, h5 {
   .nav-links { gap: 11px !important; }
   .nav-item  { font-size: 0.55rem !important; letter-spacing: 0.04em !important; }
 }
+
+
+/* ---- Method / process section -------------------------------------------
+   Global rather than styled-jsx: the Stage sub-component never receives
+   styled-jsx's scoping class, so scoped rules silently do nothing. ------- */
+.mp-list { position: relative; }
+.mp-stage {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) minmax(0, 0.86fr);
+  gap: 0 34px;
+  align-items: start;
+}
+.mp-rail { display: flex; flex-direction: column; align-items: center; height: 100%; gap: 10px; padding-top: 4px; }
+.mp-no { font-size: 0.6rem; letter-spacing: 0.18em; color: var(--accent); display: block; margin-bottom: 12px; }
+.mp-k { margin: 0 0 10px; font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+.mp-d { margin: 0 0 18px; font-size: 0.975rem; line-height: 1.62; color: var(--ink-2); max-width: 400px; }
+.mp-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.mp-viz {
+  height: 152px; border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--rule);
+  background: linear-gradient(165deg, rgba(244,245,247,0.045), rgba(244,245,247,0.012));
+  box-shadow: inset 0 0 42px -18px rgba(0,0,0,0.7);
+}
+.mp-progress { display: none; }
+.mp-foot { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 46px; }
+.mp-domains { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); line-height: 1.9; }
+.mp-tools { display: flex; flex-wrap: wrap; gap: 9px 18px; font-size: 1rem; color: var(--ink-2); }
+
+@media (max-width: 860px) {
+  .mp-stage { grid-template-columns: 22px minmax(0, 1fr); gap: 0 20px; }
+  .mp-stage > div:last-child { grid-column: 2; }
+  .mp-viz { height: 132px; }
+  .mp-foot { grid-template-columns: 1fr; gap: 30px; }
+}

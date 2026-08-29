@@ -19,7 +19,7 @@ const WORK = [
     shot: '/ebix/private-equity.png',
     // 1.86 wide vs a 16:10 slot — contain keeps both offering cards and the
     // left nav rail intact. White ground so the letterbox is invisible.
-    fit: 'contain', pos: 'center', bg: '#FFFFFF',
+    fit: 'contain', pos: 'top center', bg: '#FFFFFF',
   },
   {
     no: '02',
