@@ -97,18 +97,16 @@ export default function Hero({ start = true }) {
       <div className="wrap">
         <div className="row">
           <div className="col-text">
-            <motion.div className="pill" {...rise(0.1)}>
+            <motion.div className="pill" {...rise(0.1)} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 30, padding: '8px 16px', borderRadius: 100, background: 'var(--bg-2,#15171D)', border: '1px solid var(--rule,rgba(244,245,247,0.12))' }}>
               <span className="statusdot" />
               <span className="font-mono pilltxt">Enterprise Product Designer · India · Available</span>
             </motion.div>
 
-            <motion.h1 className="head" {...rise(0.25)} style={{ fontSize: 'clamp(1.85rem, 3.6vw, 3.5rem)', fontWeight: 600, lineHeight: 1.08, letterSpacing: '-0.035em', color: 'var(--ink, #F4F5F7)', maxWidth: '20ch', marginBottom: 28 }}>
-              <span style={{ display: 'inline-block' }}>Relationship managers.</span>{' '}
-              <span style={{ display: 'inline-block' }}>Custody teams.</span>{' '}
-              <span className="font-serif" style={{ display: 'inline-block', fontStyle: 'italic', fontWeight: 500, color: 'var(--accent, #4F8DF7)', textShadow: '0 0 24px rgba(79,141,247,0.45), 0 0 8px rgba(79,141,247,0.30)' }}>HNI clients.</span>
+            <motion.h1 className="head" {...rise(0.25)} style={{ fontSize: 'clamp(2.4rem, 6vw, 5.2rem)', fontWeight: 600, lineHeight: 1.02, letterSpacing: '-0.035em', color: 'var(--ink, #F4F5F7)', maxWidth: '18ch', marginBottom: 38 }}>
+              Designing systems <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--accent, #4F8DF7)', textShadow: '0 0 24px rgba(79,141,247,0.45), 0 0 8px rgba(79,141,247,0.30)' }}>people depend on.</span>
             </motion.h1>
 
-            <motion.div className="kicker font-mono" {...rise(0.6)}>
+            <motion.div className="kicker font-mono" {...rise(0.6)} style={{ fontSize: '0.8rem', letterSpacing: '0.05em', color: 'var(--ink-2,rgba(244,245,247,0.62))', marginBottom: 20 }}>
               Built for{' '}
               <span className="cycwrap">
                 <AnimatePresence mode="wait">
@@ -117,11 +115,11 @@ export default function Hero({ start = true }) {
               </span>
             </motion.div>
 
-            <motion.p className="lede" {...rise(0.72)}>
-              That&apos;s who uses what I design. Currently at EBIXCash, on wealth management, custody and loan-against-securities. Before that, ARC — a field-force platform running at BMC Mumbai and KBZ Bank — plus debt recovery, government recruitment, insurance and IoT.
+            <motion.p className="lede" {...rise(0.72)} style={{ fontSize: '1.0625rem', color: 'var(--ink-2,rgba(244,245,247,0.62))', lineHeight: 1.7, maxWidth: 470, marginBottom: 40 }}>
+              Complex organisations run on products most designers never see. At EBIXCash I design across wealth management, capital markets, and custody, where interface decisions carry real financial consequence. Before that: field operations, government platforms, IoT, and embedded finance. The problems differ — the method doesn&apos;t.
             </motion.p>
 
-            <motion.div className="cta" {...rise(0.86)}>
+            <motion.div className="cta" {...rise(0.86)} style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', columnGap: 32, rowGap: 18 }}>
               <button onClick={() => document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })} className="btn">View the work</button>
               <a href="#contact" className="link-line font-mono getintouch">Get in touch →</a>
             </motion.div>
@@ -187,17 +185,17 @@ export default function Hero({ start = true }) {
         .pilltxt { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2,rgba(244,245,247,0.62)); }
         .statusdot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; background: var(--live,#3FB873); box-shadow: 0 0 0 0 rgba(63,184,115,0.55), 0 0 10px rgba(63,184,115,0.75); animation: statusPulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
         @keyframes statusPulse { 0% { box-shadow: 0 0 0 0 rgba(63,184,115,0.55), 0 0 10px rgba(63,184,115,0.75); } 70% { box-shadow: 0 0 0 8px rgba(63,184,115,0), 0 0 10px rgba(63,184,115,0.75); } 100% { box-shadow: 0 0 0 0 rgba(63,184,115,0), 0 0 10px rgba(63,184,115,0.75); } }
-        .head { font-size: clamp(2.4rem, 6vw, 5.2rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.035em; max-width: 18ch; margin-bottom: 28px; color: var(--ink,#F4F5F7); }
+        .head { font-size: clamp(2.4rem, 6vw, 5.2rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.035em; max-width: 18ch; margin-bottom: 38px; color: var(--ink,#F4F5F7); }
         .hl { display: block; overflow: hidden; padding-bottom: 0.12em; }
         .hlin { display: block; }
         .accent { font-style: italic; font-weight: 500; color: var(--accent,#4F8DF7); text-shadow: 0 0 24px rgba(79,141,247,0.45), 0 0 8px rgba(79,141,247,0.30); }
-        .kicker { font-size: 0.8rem; letter-spacing: 0.05em; color: var(--ink-2,rgba(244,245,247,0.62)); margin-bottom: 28px; }
+        .kicker { font-size: 0.8rem; letter-spacing: 0.05em; color: var(--ink-2,rgba(244,245,247,0.62)); margin-bottom: 20px; }
         .cycwrap { display: inline-block; min-width: 8.5ch; text-align: left; }
         .cyc { color: var(--accent,#4F8DF7); display: inline-block; text-shadow: 0 0 12px rgba(79,141,247,0.35); }
-        .lede { font-size: 1.0625rem; color: var(--ink-2,rgba(244,245,247,0.62)); line-height: 1.65; max-width: 500px; margin-bottom: 34px; }
-        .cta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-        .btn { padding: 13px 26px; border-radius: 9px; background: var(--accent,#4F8DF7); color: #fff; font-size: 0.875rem; font-weight: 600; border: none; cursor: pointer; font-family: inherit; transition: transform 0.2s, box-shadow 0.3s; box-shadow: 0 8px 30px -8px rgba(79,141,247,0.6); }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px -8px rgba(79,141,247,0.75); }
+        .lede { font-size: 1.0625rem; color: var(--ink-2,rgba(244,245,247,0.62)); line-height: 1.7; max-width: 470px; margin-bottom: 40px; }
+        .cta { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; row-gap: 18px; }
+        .btn { padding: 13px 26px; border-radius: 9px; background: var(--accent,#4F8DF7); color: #fff; font-size: 0.875rem; font-weight: 600; border: none; cursor: pointer; font-family: inherit; transition: transform 0.2s, box-shadow 0.3s; box-shadow: 0 8px 22px -12px rgba(79,141,247,0.55); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(79,141,247,0.7); }
         .getintouch { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
 
         .stage { position: relative; perspective: 1500px; height: min(72vh, 560px); }

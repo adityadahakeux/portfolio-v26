@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const NAV = [
   { label: 'Work',    href: '#work' },
-  { label: 'Archive', href: '#systems' },
+  { label: 'More Work', href: '#systems' },
   { label: 'Method',  href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -30,12 +30,12 @@ export default function Navbar() {
     >
       <div className="wrap-wide" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 18, paddingBottom: 18 }}>
         <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="font-display" style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, letterSpacing: '-0.01em' }}>
+          className="font-display nav-brand" style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, letterSpacing: '-0.01em' }}>
           Aditya Dahake
         </button>
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 30 }} className="hide-mobile">
+        <nav style={{ alignItems: 'center', gap: 30 }} className="nav-links">
           {NAV.map(l => (
-            <button key={l.label} onClick={() => go(l.href)} className="link-line font-mono"
+            <button key={l.label} onClick={() => go(l.href)} className="link-line font-mono nav-item"
               style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{l.label}</button>
           ))}
         </nav>

@@ -43,9 +43,9 @@ export default function SystemsBeyond() {
       {/* Archive-room intro — bridges TruMac into the archive */}
       <div className="wrap-wide">
         <motion.div style={{ opacity: introOp, y: introY, textAlign: 'center', marginBottom: 56 }}>
-          <span className="label" style={{ color: 'var(--accent)', marginBottom: 18 }}>The Archive</span>
+          <span className="label" style={{ color: 'var(--accent)', marginBottom: 18 }}>More Work</span>
           <h2 style={{ fontSize: 'clamp(1.6rem, 3.4vw, 2.6rem)', fontWeight: 600, color: 'var(--ink)', letterSpacing: '-0.025em', lineHeight: 1.1, maxWidth: 720, margin: '0 auto' }}>
-            Six more systems, across <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--accent)' }}>eight operational domains.</span>
+            Seven more systems, across <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--accent)' }}>eight operational domains.</span>
           </h2>
           <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, maxWidth: 520, margin: '18px auto 0' }}>
             The same method — find the system underneath, then make it usable — applied wherever the work demanded it.

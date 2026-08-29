@@ -214,3 +214,17 @@ h1, h2, h3, h4, h5 {
   opacity: 0.5; transition: opacity 360ms ease, transform 360ms ease;
 }
 .trust-logo:hover { opacity: 1; transform: translateY(-2px); }
+
+
+/* Navbar: keep all four links on one line down to small phones */
+.nav-links { display: flex; }
+@media (max-width: 768px) {
+  .nav-brand { font-size: 0.95rem !important; }
+  .nav-links { gap: 16px !important; }
+  .nav-item  { font-size: 0.6rem !important; letter-spacing: 0.06em !important; }
+}
+@media (max-width: 400px) {
+  .nav-brand { font-size: 0.82rem !important; white-space: nowrap; }
+  .nav-links { gap: 11px !important; }
+  .nav-item  { font-size: 0.55rem !important; letter-spacing: 0.04em !important; }
+}
