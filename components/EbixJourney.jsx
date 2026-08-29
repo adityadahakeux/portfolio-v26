@@ -16,21 +16,28 @@ const WORK = [
     name: 'Private Equity',
     domain: 'US market',
     line: 'Capital placed into property and land, held and tracked as shareholdings.',
-    shot: null,
+    shot: '/ebix/private-equity.png',
+    // 1.86 wide vs a 16:10 slot — contain keeps both offering cards and the
+    // left nav rail intact. White ground so the letterbox is invisible.
+    fit: 'contain', pos: 'center', bg: '#FFFFFF',
   },
   {
     no: '02',
     name: 'RM Dashboards',
     domain: 'Wealth management',
     line: 'Every client on one screen — portfolio status, wealth under management, and what needs attention today.',
-    shot: null,
+    shot: '/ebix/rm-dashboard.png',
+    // very tall page — anchor to the top so the header, nav rail and KPI strip
+    // stay visible rather than squashing the whole page into a thumbnail
+    fit: 'cover', pos: 'top center', bg: '#FFFFFF',
   },
   {
     no: '03',
     name: 'Vantage',
     domain: 'Loan against securities',
     line: 'Clients borrow against the portfolio they already hold, without having to sell any of it.',
-    shot: null,
+    shot: '/ebix/vantage.png',
+    fit: 'cover', pos: 'top center', bg: '#FFFFFF',
   },
 ];
 
@@ -76,7 +83,12 @@ export default function EbixJourney() {
             >
               <div className="shot">
                 {w.shot ? (
-                  <img src={w.shot} alt={w.name} className="shot-img" />
+                  <div className="frame" style={{ background: w.bg }}>
+                    <img
+                      src={w.shot} alt={`${w.name} — EBIXCash`} loading="lazy"
+                      style={{ width: '100%', height: '100%', objectFit: w.fit, objectPosition: w.pos, display: 'block' }}
+                    />
+                  </div>
                 ) : (
                   <div className="ph" aria-hidden>
                     <span className="ph-grid" />
@@ -164,7 +176,7 @@ export default function EbixJourney() {
           transition: border-color 0.45s ease, transform 0.45s cubic-bezier(0.16,1,0.3,1),
                       box-shadow 0.45s ease;
         }
-        .shot-img { width: 100%; display: block; }
+        .frame { aspect-ratio: 16 / 10; overflow: hidden; }
         .card:hover .shot {
           transform: translateY(-5px);
           border-color: rgba(79,141,247,0.42);
