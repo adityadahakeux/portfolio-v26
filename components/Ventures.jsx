@@ -39,7 +39,7 @@ const VENTURES = [
     tags: ['Admin console', 'Multi-tenant', 'Model usage analytics', 'Data-dense tables'],
     status: 'Shipped',
     device: 'browser',
-    shots: ['/ventures/midas-1.png'],
+    shots: ['/ventures/midas-1.png', '/ventures/midas-2.png'],
   },
   {
     no: '03',
