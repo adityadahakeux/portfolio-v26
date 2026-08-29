@@ -241,9 +241,15 @@ h1, h2, h3, h4, h5 {
   align-items: start;
 }
 .mp-rail { display: flex; flex-direction: column; align-items: center; height: 100%; gap: 10px; padding-top: 4px; }
+.mp-rail-track { display: block; flex: 1; width: 1px; background: var(--rule); position: relative; }
+.mp-rail-fill { display: block; position: absolute; inset: 0; transform-origin: top center;
+  background: linear-gradient(180deg, var(--accent), rgba(79,141,247,0.28)); }
+.mp-tag { display: inline-block; padding: 5px 10px; border-radius: 100px;
+  border: 1px solid var(--rule); font-size: 0.62rem; letter-spacing: 0.07em;
+  color: var(--ink-2); white-space: nowrap; }
 .mp-no { font-size: 0.6rem; letter-spacing: 0.18em; color: var(--accent); display: block; margin-bottom: 12px; }
 .mp-k { margin: 0 0 10px; font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
-.mp-d { margin: 0 0 18px; font-size: 0.975rem; line-height: 1.62; color: var(--ink-2); max-width: 400px; }
+.mp-d { margin: 0 0 18px; font-size: 0.95rem; line-height: 1.62; color: var(--ink-2); max-width: 420px; }
 .mp-tags { display: flex; flex-wrap: wrap; gap: 7px; }
 .mp-viz {
   height: 152px; border-radius: 10px; overflow: hidden;
