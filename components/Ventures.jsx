@@ -17,8 +17,8 @@ const VENTURES = [
     name: 'Troveez',
     kind: 'Creator platform · iOS & Android',
     accent: '#F5333F',
-    line: 'A social platform where creators host live shows, sell concert tickets and take tips — with the wallet built into the feed rather than bolted on beside it.',
-    tags: ['Onboarding', 'Feed & live', 'Ticketing', 'Wallet & tipping'],
+    line: 'A social platform where creators actually get paid — live shows, ticketed concerts, subscriptions and mid-stream tips, all settling into a wallet that lives inside the feed rather than bolted on beside it.',
+    tags: ['Onboarding', 'Feed & live', 'Ticketing', 'Subscriptions', 'Tipping & wallet'],
     status: 'Shipped',
     device: 'phone',
     shots: [
@@ -28,6 +28,7 @@ const VENTURES = [
       '/ventures/troveez-4.png', // booking confirmed
       '/ventures/troveez-5.png', // tipping mid-stream
       '/ventures/troveez-6.png', // wallet
+      '/ventures/troveez-7.png', // subscription confirmed
     ],
   },
   {
@@ -50,7 +51,7 @@ const VENTURES = [
     tags: ['Threat correlation', 'Analyst workflow', 'Dark UI'],
     status: 'In build',
     device: 'browser',
-    tease: true,   // blurred + masked: a glimpse, not a reveal
+    viz: 'soc',    // drawn abstraction, not a screenshot — nothing real exposed
     shots: [],
   },
 ];
@@ -60,6 +61,54 @@ function Placeholder({ device, accent }) {
     <div className={device === 'phone' ? 'vt-ph-phone' : 'vt-ph-browser'} aria-hidden>
       <span className="vt-ph-grid" />
       <span className="font-mono vt-ph-txt" style={{ color: accent }}>Screens to come</span>
+    </div>
+  );
+}
+
+
+// An abstraction of a correlation graph — drawn, not captured. Conveys
+// "security operations" without exposing a single real entity.
+function SocGlimpse({ accent }) {
+  const NODES = [
+    [16, 30, '#5BB8E8'], [30, 14, '#5BB8E8'], [34, 46, '#F0674F'],
+    [56, 34, '#E8A33D'], [78, 18, '#F0674F'], [80, 52, '#E8A33D'],
+    [58, 66, '#E8A33D'], [40, 76, '#5BB8E8'],
+  ];
+  const EDGES = [
+    ['M18 31 L32 44', '#5BB8E8', 0], ['M31 16 L34 43', '#5BB8E8', 0],
+    ['M37 45 L54 36', '#F0674F', 0], ['M59 33 L76 20', '#F0674F', 0],
+    ['M36 49 L56 64', '#F0674F', 0], ['M60 36 L78 50', '#E8A33D', 0],
+    ['M60 65 L78 54', '#E8A33D', 0], ['M42 74 L57 38', '#4F8DF7', 1],
+  ];
+  return (
+    <div className="vt-soc">
+      <div className="vt-soc-bar" aria-hidden>
+        {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+          <span key={i} className="vt-soc-stage">
+            <i style={{ background: i > 4 ? '#F0674F' : '#E8A33D' }} />
+            <b style={{ width: 18 + (i % 3) * 12 }} />
+          </span>
+        ))}
+      </div>
+      <svg viewBox="0 0 100 90" preserveAspectRatio="xMidYMid meet" aria-hidden>
+        {EDGES.map(([d, c, dash], i) => (
+          <path key={i} d={d} stroke={c} strokeOpacity="0.75" strokeWidth="0.7"
+            fill="none" strokeDasharray={dash ? '2 2' : undefined} />
+        ))}
+        {NODES.map(([cx, cy, c], i) => (
+          <g key={i}>
+            <circle cx={cx} cy={cy} r="4.6" fill="rgba(14,15,19,0.9)" stroke={c} strokeWidth="0.9" />
+            <circle cx={cx} cy={cy} r="1.5" fill={c} fillOpacity="0.8" />
+          </g>
+        ))}
+        <circle cx="80" cy="52" r="7" fill="none" stroke="#E8A33D" strokeOpacity="0.45" strokeWidth="0.6" />
+      </svg>
+      <div className="vt-soc-veil" aria-hidden>
+        <span className="font-mono vt-tease-txt" style={{ color: accent }}>
+          <i className="vt-pulse" style={{ background: accent }} />
+          In build
+        </span>
+      </div>
     </div>
   );
 }
@@ -105,7 +154,9 @@ function Venture({ v, i }) {
         className="vt-visual"
         style={{ '--vt-accent': v.accent }}
       >
-        {!hasShots ? (
+        {v.viz === 'soc' ? (
+          <SocGlimpse accent={v.accent} />
+        ) : !hasShots ? (
           <Placeholder device={v.device} accent={v.accent} />
         ) : v.device === 'phone' ? (
           <div className="vt-phones">
