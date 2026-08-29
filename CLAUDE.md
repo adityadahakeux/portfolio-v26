@@ -23,6 +23,14 @@ it (verify the preview, report back) is Claude's job.
 ### Still requires explicit approval every time
 - **Merging to `main` / publishing to adityadahake.com.** The owner approves by looking at the preview link and saying yes. Never merge to `main` on your own initiative.
 
+### Preview URL (stable, does not change between pushes)
+https://portfolio-v26-git-portfolio-v27-aditya-dahake-s-projects.vercel.app
+
+Vercel project: `portfolio-v26` (team `aditya-dahake-s-projects`), git-connected to
+`adityadahakeux/portfolio-v26`. Previews are behind Vercel Authentication, so Claude CANNOT open
+them — only the owner can. Claude verifies by running the site locally instead. The live production
+site (adityadahake.com) IS publicly readable, so Claude can and should verify that directly.
+
 ### Rules for every change
 1. Run `npm run build` before pushing. Never push a failing build.
 2. After the preview deploys, open it, verify it visually, and hand the owner the link plus a screenshot.

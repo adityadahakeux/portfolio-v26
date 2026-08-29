@@ -4,15 +4,37 @@
     {
       "name": "cyberlensai",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "/Users/adityadahake/Downloads/cyberlensai"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "/Users/adityadahake/Downloads/cyberlensai"
+      ],
       "port": 3001,
       "autoPort": true
     },
     {
       "name": "aditya-ashwini-invite",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "/Users/adityadahake/Downloads/aditya-ashwini-invite"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "/Users/adityadahake/Downloads/aditya-ashwini-invite"
+      ],
       "port": 3010
+    },
+    {
+      "name": "portfolio-live",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "/Users/adityadahake/Downloads/portfolio live"
+      ],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

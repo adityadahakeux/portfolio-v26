@@ -102,8 +102,10 @@ export default function Hero({ start = true }) {
               <span className="font-mono pilltxt">Enterprise Product Designer · India · Available</span>
             </motion.div>
 
-            <motion.h1 className="head" {...rise(0.25)} style={{ fontSize: 'clamp(2.4rem, 6vw, 5.2rem)', fontWeight: 600, lineHeight: 1.02, letterSpacing: '-0.035em', color: 'var(--ink, #F4F5F7)', maxWidth: '18ch', marginBottom: 28 }}>
-              Designing systems <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--accent, #4F8DF7)', textShadow: '0 0 24px rgba(79,141,247,0.45), 0 0 8px rgba(79,141,247,0.30)' }}>people depend on.</span>
+            <motion.h1 className="head" {...rise(0.25)} style={{ fontSize: 'clamp(1.85rem, 3.6vw, 3.5rem)', fontWeight: 600, lineHeight: 1.08, letterSpacing: '-0.035em', color: 'var(--ink, #F4F5F7)', maxWidth: '20ch', marginBottom: 28 }}>
+              <span style={{ display: 'inline-block' }}>Relationship managers.</span>{' '}
+              <span style={{ display: 'inline-block' }}>Custody teams.</span>{' '}
+              <span className="font-serif" style={{ display: 'inline-block', fontStyle: 'italic', fontWeight: 500, color: 'var(--accent, #4F8DF7)', textShadow: '0 0 24px rgba(79,141,247,0.45), 0 0 8px rgba(79,141,247,0.30)' }}>HNI clients.</span>
             </motion.h1>
 
             <motion.div className="kicker font-mono" {...rise(0.6)}>
@@ -116,7 +118,7 @@ export default function Hero({ start = true }) {
             </motion.div>
 
             <motion.p className="lede" {...rise(0.72)}>
-              Complex organisations run on products most designers never see. At EBIXCash I design across wealth management, capital markets, and custody, where interface decisions carry real financial consequence. Before that: field operations, government platforms, IoT, and embedded finance. The problems differ — the method doesn&apos;t.
+              That&apos;s who uses what I design. Currently at EBIXCash, on wealth management, custody and loan-against-securities. Before that, ARC — a field-force platform running at BMC Mumbai and KBZ Bank — plus debt recovery, government recruitment, insurance and IoT.
             </motion.p>
 
             <motion.div className="cta" {...rise(0.86)}>
