@@ -13,6 +13,7 @@ import ProjectINDHI from '@/components/ProjectINDHI';
 import TruMac from '@/components/ProjectTruMac';
 import PublicSector from '@/components/PublicSector';
 import SystemsBeyond from '@/components/SystemsBeyond';
+import Ventures from '@/components/Ventures';
 import MethodProcess from '@/components/MethodProcess';
 import TrustBand from '@/components/TrustBand';
 import Contact from '@/components/Contact';
@@ -37,6 +38,7 @@ export default function Home() {
             <TruMac />
             <Unwrap><PublicSector /></Unwrap>
             <Unwrap><SystemsBeyond /></Unwrap>
+            <Unwrap><Ventures /></Unwrap>
             <MethodProcess />
             <TrustBand />
             <Contact />

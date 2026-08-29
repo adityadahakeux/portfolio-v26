@@ -40,7 +40,7 @@ export default function TruMac() {
             </div>
 
             {/* the CENTERPIECE phone — large */}
-            <div style={{ position: 'relative', width: 'clamp(250px, 30vw, 330px)', height: 'clamp(510px, 62vw, 680px)', justifySelf: 'center' }}>
+            <div style={{ position: 'relative', height: 'min(clamp(430px, 62vw, 680px), calc(100svh - 175px))', aspectRatio: '9 / 19', width: 'auto', justifySelf: 'center' }}>
               {STEPS.map((s, i) => <Frame key={i} step={s} index={i} total={STEPS.length} progress={scrollYProgress} />)}
             </div>
 
