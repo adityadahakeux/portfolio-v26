@@ -49,17 +49,19 @@ export default function EbixJourney() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.75, ease: EASE }}
           className="head-block"
+          style={{ maxWidth: 660, marginBottom: 76 }}
         >
           <span className="label eyebrow">
             <i className="dot" />
             Currently · EBIXCash
           </span>
           <h2 className="h2">
-            Three products inside one{' '}
-            <span className="font-serif accent">wealth platform.</span>
+            Three of the products I work on.{' '}
+            <span className="font-serif accent">All of them handle real money.</span>
           </h2>
           <p className="sub">
-            Wealth, custody and lending for relationship managers and the clients they hold.
+            EBIXCash builds the wealth, custody and lending platforms that banks and advisors
+            run on. I design across them — these are three.
           </p>
         </motion.div>
 
