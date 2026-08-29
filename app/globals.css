@@ -382,3 +382,13 @@ h1, h2, h3, h4, h5 {
   .vt-h2 { margin-bottom: 48px; }
   .vt-phone { flex: 0 0 132px; }
 }
+
+/* Unreleased venture: a glimpse, not a reveal */
+.vt-tease { position: relative; }
+.vt-tease img { filter: blur(3px) saturate(0.85); transform: scale(1.03); }
+.vt-tease-veil { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, rgba(14,15,19,0.55) 0%, rgba(14,15,19,0.82) 100%); }
+.vt-tease-txt { display: inline-flex; align-items: center; gap: 9px;
+  padding: 9px 16px; border-radius: 100px;
+  background: rgba(14,15,19,0.9); border: 1px solid rgba(63,184,115,0.4);
+  font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; }

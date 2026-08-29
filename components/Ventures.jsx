@@ -35,11 +35,11 @@ const VENTURES = [
     name: 'MIDAS',
     kind: 'AI platform · B2B web',
     accent: '#4F6BF7',
-    line: 'Describe the software you need and the platform builds it. My job was the console behind that — the admin surface where an operator watches generation, analysis, deployment and testing across every customer.',
-    tags: ['Admin console', 'Multi-tenant', 'Pipeline states', 'Data density'],
+    line: 'Describe the software you need and the platform generates it. I designed the operator console behind that — repository generation tracked across ChatGPT, Claude and Deepseek, iteration counts, and customer-wise reporting for every tenant on the platform.',
+    tags: ['Admin console', 'Multi-tenant', 'Model usage analytics', 'Data-dense tables'],
     status: 'Shipped',
     device: 'browser',
-    shots: [],
+    shots: ['/ventures/midas-1.png'],
   },
   {
     no: '03',
@@ -50,6 +50,7 @@ const VENTURES = [
     tags: ['Threat correlation', 'Analyst workflow', 'Dark UI'],
     status: 'In build',
     device: 'browser',
+    tease: true,   // blurred + masked: a glimpse, not a reveal
     shots: [],
   },
 ];
@@ -123,14 +124,22 @@ function Venture({ v, i }) {
         ) : (
           <div className="vt-browsers">
             {v.shots.map((src, k) => (
-              <motion.div key={src} className="vt-browser"
+              <motion.div key={src} className={v.tease ? 'vt-browser vt-tease' : 'vt-browser'}
                 initial={{ opacity: 0, y: 20 }} animate={go ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.2 + k * 0.12, ease: EASE }}
               >
                 <div className="vt-chrome">
                   <span className="vt-dot" /><span className="vt-dot" /><span className="vt-dot" />
                 </div>
-                <img src={src} alt={`${v.name} — screen ${k + 1}`} loading="lazy" />
+                <img src={src} alt={v.tease ? `${v.name} — preview` : `${v.name} — screen ${k + 1}`} loading="lazy" />
+                {v.tease && (
+                  <div className="vt-tease-veil" aria-hidden>
+                    <span className="font-mono vt-tease-txt" style={{ color: v.accent }}>
+                      <i className="vt-pulse" style={{ background: v.accent }} />
+                      In build
+                    </span>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
