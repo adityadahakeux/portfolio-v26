@@ -102,11 +102,11 @@ export default function Hero({ start = true }) {
               <span className="font-mono pilltxt">Enterprise Product Designer · India · Available</span>
             </motion.div>
 
-            <motion.h1 className="head" {...rise(0.25)} style={{ fontSize: 'clamp(2.4rem, 6vw, 5.2rem)', fontWeight: 600, lineHeight: 1.02, letterSpacing: '-0.035em', color: 'var(--ink, #F4F5F7)', maxWidth: '18ch', marginBottom: 38 }}>
+            <motion.h1 className="head" {...rise(0.25)} style={{ fontSize: 'clamp(2.1rem, 4.6vw, 4rem)', fontWeight: 600, lineHeight: 1.05, letterSpacing: '-0.035em', color: 'var(--ink, #F4F5F7)', maxWidth: '19ch', marginBottom: 30 }}>
               Designing systems <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--accent, #4F8DF7)', textShadow: '0 0 24px rgba(79,141,247,0.45), 0 0 8px rgba(79,141,247,0.30)' }}>people depend on.</span>
             </motion.h1>
 
-            <motion.div className="kicker font-mono" {...rise(0.6)} style={{ fontSize: '0.8rem', letterSpacing: '0.05em', color: 'var(--ink-2,rgba(244,245,247,0.62))', marginBottom: 20 }}>
+            <motion.div className="kicker font-mono" {...rise(0.6)} style={{ fontSize: '0.8rem', letterSpacing: '0.05em', color: 'var(--ink-2,rgba(244,245,247,0.62))', marginBottom: 16 }}>
               Built for{' '}
               <span className="cycwrap">
                 <AnimatePresence mode="wait">
@@ -115,7 +115,7 @@ export default function Hero({ start = true }) {
               </span>
             </motion.div>
 
-            <motion.p className="lede" {...rise(0.72)} style={{ fontSize: '1.0625rem', color: 'var(--ink-2,rgba(244,245,247,0.62))', lineHeight: 1.7, maxWidth: 470, marginBottom: 40 }}>
+            <motion.p className="lede" {...rise(0.72)} style={{ fontSize: '0.975rem', color: 'var(--ink-2,rgba(244,245,247,0.62))', lineHeight: 1.66, maxWidth: 460, marginBottom: 34 }}>
               Complex organisations run on products most designers never see. At EBIXCash I design across wealth management, capital markets, and custody, where interface decisions carry real financial consequence. Before that: field operations, government platforms, IoT, and embedded finance. The problems differ — the method doesn&apos;t.
             </motion.p>
 
@@ -163,7 +163,7 @@ export default function Hero({ start = true }) {
           </motion.div>
         </div>
 
-        <motion.div className="metrics" {...rise(0.95)} style={{ display: 'flex', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap', borderTop: '1px solid var(--rule, rgba(244,245,247,0.12))', paddingTop: 26, marginTop: 48 }}>
+        <motion.div className="metrics" {...rise(0.95)} style={{ display: 'flex', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap', borderTop: '1px solid var(--rule, rgba(244,245,247,0.12))', paddingTop: 26, marginTop: 60 }}>
           {[{ v: 10, suf: '+', l: 'Enterprise products' }, { v: 8, suf: '', l: 'Operational domains' }, { v: 3, suf: '', l: 'Flagship systems' }, { v: 28542, suf: '', l: 'Field workers tracked' }].map((m, i) => (
             <div className="metric" key={i} style={{ flex: '1 1 0', minWidth: 110 }}>
               <div className="font-mono num"><Counter to={m.v} suffix={m.suf} start={start} /></div>
@@ -174,18 +174,18 @@ export default function Hero({ start = true }) {
       </div>
 
       <style jsx>{`
-        .hero-im { background: var(--bg,#0E0F13); color: var(--ink,#F4F5F7); position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 120px 0 56px; overflow: hidden; }
+        .hero-im { background: var(--bg,#0E0F13); color: var(--ink,#F4F5F7); position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-start; padding: 120px 0 56px; overflow: hidden; }
         .net { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
         .glow { position: absolute; inset: 0; z-index: 0; background: radial-gradient(54% 52% at 70% 34%, rgba(79,141,247,0.16) 0%, transparent 60%); }
         .grid { position: absolute; inset: 0; z-index: 0; opacity: 0.5; background-image: linear-gradient(rgba(244,245,247,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(244,245,247,0.022) 1px, transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(ellipse 80% 70% at 62% 38%, #000 20%, transparent 80%); mask-image: radial-gradient(ellipse 80% 70% at 62% 38%, #000 20%, transparent 80%); }
         .scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, var(--bg,#0E0F13) 0%, rgba(14,15,19,0.55) 30%, transparent 62%); }
         .wrap { position: relative; z-index: 2; max-width: 1340px; margin: 0 auto; padding: 0 56px; width: 100%; }
-        .row { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 40px; align-items: center; }
+        .row { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 40px; align-items: center; min-height: calc(100svh - 150px); }
         .pill { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 30px; padding: 8px 16px; border-radius: 100px; background: var(--bg-2,#15171D); border: 1px solid var(--rule,rgba(244,245,247,0.12)); }
         .pilltxt { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2,rgba(244,245,247,0.62)); }
         .statusdot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; background: var(--live,#3FB873); box-shadow: 0 0 0 0 rgba(63,184,115,0.55), 0 0 10px rgba(63,184,115,0.75); animation: statusPulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
         @keyframes statusPulse { 0% { box-shadow: 0 0 0 0 rgba(63,184,115,0.55), 0 0 10px rgba(63,184,115,0.75); } 70% { box-shadow: 0 0 0 8px rgba(63,184,115,0), 0 0 10px rgba(63,184,115,0.75); } 100% { box-shadow: 0 0 0 0 rgba(63,184,115,0), 0 0 10px rgba(63,184,115,0.75); } }
-        .head { font-size: clamp(2.4rem, 6vw, 5.2rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.035em; max-width: 18ch; margin-bottom: 38px; color: var(--ink,#F4F5F7); }
+        .head { font-size: clamp(2.1rem, 4.6vw, 4rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; max-width: 19ch; margin-bottom: 30px; color: var(--ink,#F4F5F7); }
         .hl { display: block; overflow: hidden; padding-bottom: 0.12em; }
         .hlin { display: block; }
         .accent { font-style: italic; font-weight: 500; color: var(--accent,#4F8DF7); text-shadow: 0 0 24px rgba(79,141,247,0.45), 0 0 8px rgba(79,141,247,0.30); }
@@ -249,7 +249,7 @@ export default function Hero({ start = true }) {
         @media (max-width: 960px) {
           .hero-im { padding: 104px 0 40px; }
           .wrap { padding: 0 24px; }
-          .row { grid-template-columns: 1fr; gap: 10px; }
+          .row { grid-template-columns: 1fr; gap: 10px; min-height: 0; }
           .col-vis { order: -1; }
           .stage { height: 44vh; max-width: 520px; margin: 0 auto; width: 100%; }
           .fk, .fstatus { display: none; }
