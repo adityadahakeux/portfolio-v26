@@ -22,12 +22,9 @@ const SYSTEMS = [
   { i: '05', name: 'Sikho Kamana', domain: 'EdTech', year: '2021', logo: '/logos/sikho.png',
     insight: 'Skill platforms lose users after intent, not motivation. The friction lives after the decision, not before it.',
     meta: ['Education · mobile', 'iOS + Android', 'Product design'] },
-  { i: '06', name: 'Samarth', domain: 'Gov-Tech · National scale', year: '2020', logo: '/logos/samarth.png',
+  { i: '06', name: 'Samarth', domain: 'Gov-Tech · National scale', year: '2022', logo: '/logos/samarth.png',
     insight: 'A government recruitment and onboarding platform serving users meeting public digital infrastructure for the first time.',
     meta: ['Government · national', 'Web · public', 'UX design'] },
-  { i: '07', name: 'Saksham', domain: 'Gov-Tech · Skilling', year: '2020', logo: '/logos/saksham.png',
-    insight: 'A skilling and enablement system designed under real-world constraints no designer would choose — low connectivity, first-time users, high stakes.',
-    meta: ['Government · skilling', 'Web · public', 'UX design'] },
 ];
 
 export default function SystemsBeyond() {
@@ -45,7 +42,7 @@ export default function SystemsBeyond() {
         <motion.div style={{ opacity: introOp, y: introY, textAlign: 'center', marginBottom: 56 }}>
           <span className="label" style={{ color: 'var(--accent)', marginBottom: 18 }}>More Work</span>
           <h2 style={{ fontSize: 'clamp(1.6rem, 3.4vw, 2.6rem)', fontWeight: 600, color: 'var(--ink)', letterSpacing: '-0.025em', lineHeight: 1.1, maxWidth: 720, margin: '0 auto' }}>
-            Seven more systems, across <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--accent)' }}>eight operational domains.</span>
+            Six more systems, across <span className="font-serif" style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--accent)' }}>eight operational domains.</span>
           </h2>
           <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, maxWidth: 520, margin: '18px auto 0' }}>
             The same method — find the system underneath, then make it usable — applied wherever the work demanded it.

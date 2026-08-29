@@ -19,12 +19,11 @@ const PHONES = [
   { src: '/arc/training.png', cap: 'Certification in hand' },
 ];
 
-const LIFECYCLE = [
-  { k: 'Onboard', v: 'Agent verified and activated' },
-  { k: 'Target', v: 'Set above, accepted below' },
-  { k: 'Verify', v: 'Work confirmed from the field' },
-  { k: 'Train', v: 'Certification carried along' },
-  { k: 'Pay', v: 'Output resolves to payout' },
+const MODULES = [
+  'Onboarding & Verification', 'Induction & Training', 'Toolkit & Resources',
+  'Task Management', 'Dynamic KPI Planning', 'Performance Management',
+  'Customer Onboarding', 'Payout Management', 'Live Tracking & Scheduling',
+  'Document Master',
 ];
 
 function Counter({ to, suffix = '', dur = 1.8, start, decimals = 0 }) {
@@ -84,7 +83,7 @@ export default function ProjectARC() {
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, flexWrap: 'wrap' }}>
             <span className="plate-no" style={{ color: 'var(--accent)' }}>FLAGSHIP / 01</span>
             <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', fontWeight: 600, color: 'var(--ink)', lineHeight: 1, letterSpacing: '-0.03em' }}>ARC</h2>
-            <span className="label" style={{ display: 'inline' }}>Field force management</span>
+            <span className="label" style={{ display: 'inline' }}>Agent Relationship &amp; Compliance</span>
           </div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 12px', borderRadius: 100, background: 'rgba(63,184,115,0.1)', border: '1px solid rgba(63,184,115,0.3)' }}>
             <span className="pulse-dot" />
@@ -206,22 +205,25 @@ export default function ProjectARC() {
           </div>
         </div>
 
-        {/* LIFECYCLE — the whole scope of the system, at a glance */}
+        {/* THE REAL SCOPE — ten modules, named as the platform names them */}
         <motion.div
           initial={{ opacity: 0, y: 18 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.62, ease: EASE }}
         >
-        <div className="arc-cycle">
-          {LIFECYCLE.map((s, i) => (
-            <div key={s.k} className="arc-step">
-              <div className="arc-step-top">
-                <span className="font-mono arc-step-no">{String(i + 1).padStart(2, '0')}</span>
-                {i < LIFECYCLE.length - 1 && <span className="arc-step-rule" />}
+        <div className="arc-modules">
+          <div className="arc-modules-head">
+            <span className="label" style={{ display: 'inline', color: 'var(--accent)' }}>Ten modules</span>
+            <span style={{ flex: 1, minWidth: 30, height: 1, background: 'var(--rule)' }} />
+            <span className="font-mono arc-modules-note">onboarding to payout</span>
+          </div>
+          <div className="arc-modules-grid">
+            {MODULES.map((m, i) => (
+              <div key={m} className="arc-module">
+                <span className="font-mono arc-module-no">{String(i + 1).padStart(2, '0')}</span>
+                <span className="arc-module-k">{m}</span>
               </div>
-              <div className="arc-step-k">{s.k}</div>
-              <div className="arc-step-v">{s.v}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         </motion.div>
 
@@ -302,22 +304,13 @@ export default function ProjectARC() {
           text-transform: uppercase; color: var(--ink-3);
         }
 
-        .arc-cycle {
-          display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: 22px; margin-top: 62px;
-          padding-top: 30px; border-top: 1px solid var(--rule);
-        }
-        .arc-step-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-        .arc-step-no { font-size: 0.58rem; letter-spacing: 0.14em; color: var(--accent); }
-        .arc-step-rule {
-          flex: 1; height: 1px;
-          background: linear-gradient(90deg, rgba(79,141,247,0.34), rgba(244,245,247,0.07));
-        }
-        .arc-step-k {
-          font-size: 0.95rem; font-weight: 600; color: var(--ink);
-          letter-spacing: -0.01em; margin-bottom: 5px;
-        }
-        .arc-step-v { font-size: 0.82rem; line-height: 1.5; color: var(--ink-2); }
+        .arc-modules { margin-top: 58px; padding-top: 28px; border-top: 1px solid var(--rule); }
+        .arc-modules-head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
+        .arc-modules-note { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+        .arc-modules-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px 20px; }
+        .arc-module { display: flex; align-items: baseline; gap: 9px; padding-bottom: 11px; border-bottom: 1px solid rgba(244,245,247,0.06); }
+        .arc-module-no { font-size: 0.56rem; letter-spacing: 0.12em; color: var(--accent); flex: none; }
+        .arc-module-k { font-size: 0.82rem; line-height: 1.35; color: var(--ink-2); }
 
         .arc-meta-row {
           display: flex; justify-content: space-between; align-items: flex-end;
@@ -331,7 +324,7 @@ export default function ProjectARC() {
           .arc-flow-line { width: 92px; height: 1px;
             background: linear-gradient(90deg, transparent, rgba(79,141,247,0.5), transparent); }
           .arc-flow-txt { writing-mode: horizontal-tb; }
-          .arc-cycle { grid-template-columns: repeat(2, 1fr); gap: 26px; }
+          .arc-modules-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         }
         @media (max-width: 620px) {
           /* three phones side by side collapse to ~90px here, which is
@@ -348,7 +341,7 @@ export default function ProjectARC() {
             flex: 0 0 168px; scroll-snap-align: start;
           }
           .arc-cap { font-size: 0.56rem; }
-          .arc-cycle { grid-template-columns: 1fr; }
+          .arc-modules-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 14px; }
         }
       `}</style>
     </section>

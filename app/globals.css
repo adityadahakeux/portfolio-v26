@@ -268,3 +268,42 @@ h1, h2, h3, h4, h5 {
   .mp-viz { height: 132px; }
   .mp-foot { grid-template-columns: 1fr; gap: 30px; }
 }
+
+/* ---- Public sector / SAKSHAM ------------------------------------------- */
+.ps-sec { position: relative; padding: 88px 0 92px; overflow: hidden; background: var(--bg-2); }
+.ps-glow { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 52% 56% at 78% 30%, rgba(63,184,115,0.10) 0%, transparent 62%); }
+.ps-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 62px; align-items: start; }
+
+.ps-h3 { margin: 0 0 22px; font-size: clamp(1.4rem, 2.8vw, 2.1rem); font-weight: 600;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.16; max-width: 460px; }
+.ps-em { font-style: italic; font-weight: 500; color: var(--live);
+  text-shadow: 0 0 22px rgba(63,184,115,0.3); }
+.ps-p { margin: 0 0 18px; font-size: 0.975rem; line-height: 1.7; color: var(--ink-2); max-width: 500px; }
+.ps-strong { color: var(--ink); font-weight: 600; }
+
+.ps-reach { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 30px;
+  padding-top: 24px; border-top: 1px solid var(--rule); }
+.ps-v { font-size: 1.5rem; font-weight: 500; color: var(--live); letter-spacing: -0.02em; line-height: 1; }
+.ps-l { margin-top: 7px; font-size: 0.78rem; color: var(--ink-3); letter-spacing: 0.02em; }
+.ps-note { margin: 16px 0 0; font-size: 0.72rem; line-height: 1.5; color: var(--ink-3); max-width: 420px; }
+
+.ps-card { border-radius: 13px; border: 1px solid var(--rule);
+  background: linear-gradient(165deg, rgba(63,184,115,0.07), rgba(244,245,247,0.02));
+  padding: 22px 24px 18px; box-shadow: 0 28px 58px -32px rgba(0,0,0,0.85); }
+.ps-card-head { padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 16px; }
+.ps-card-src { font-size: 0.56rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--live); }
+.ps-quote { margin: 0; font-size: 0.95rem; line-height: 1.68; color: var(--ink); }
+.ps-card-foot { margin-top: 16px; padding-top: 13px; border-top: 1px solid var(--rule); }
+.ps-card-tag { font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+
+.ps-logos { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
+.ps-why { margin: 28px 0 0; padding-top: 22px; border-top: 1px solid var(--rule);
+  font-size: 0.9rem; line-height: 1.68; color: var(--ink-2); font-style: italic; }
+
+@media (max-width: 900px) {
+  .ps-sec { padding: 68px 0 72px; }
+  .ps-grid { grid-template-columns: 1fr; gap: 44px; }
+  .ps-reach { gap: 26px; }
+  .ps-logos { gap: 22px; }
+}

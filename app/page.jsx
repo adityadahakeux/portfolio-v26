@@ -11,6 +11,7 @@ import { Unwrap } from '@/components/ScrollFX';
 import ProjectARC from '@/components/ProjectARC';
 import ProjectINDHI from '@/components/ProjectINDHI';
 import TruMac from '@/components/ProjectTruMac';
+import PublicSector from '@/components/PublicSector';
 import SystemsBeyond from '@/components/SystemsBeyond';
 import MethodProcess from '@/components/MethodProcess';
 import TrustBand from '@/components/TrustBand';
@@ -34,6 +35,7 @@ export default function Home() {
             <Unwrap><ProjectARC /></Unwrap>
             <Unwrap><ProjectINDHI /></Unwrap>
             <TruMac />
+            <Unwrap><PublicSector /></Unwrap>
             <Unwrap><SystemsBeyond /></Unwrap>
             <MethodProcess />
             <TrustBand />
