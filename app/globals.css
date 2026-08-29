@@ -268,21 +268,3 @@ h1, h2, h3, h4, h5 {
   .mp-viz { height: 132px; }
   .mp-foot { grid-template-columns: 1fr; gap: 30px; }
 }
-
-
-/* Monogram mark in the fixed header */
-.nav-mark {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 30px; height: 30px; border-radius: 9px; flex: none;
-  background: linear-gradient(150deg, var(--accent) 0%, #3A6FD8 100%);
-  color: #fff; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em;
-  box-shadow: 0 6px 18px -8px rgba(79,141,247,0.85), inset 0 1px 0 rgba(255,255,255,0.22);
-  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
-}
-button:hover > .nav-mark { transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgba(79,141,247,1), inset 0 1px 0 rgba(255,255,255,0.28); }
-@media (max-width: 768px) {
-  .nav-mark { width: 26px; height: 26px; border-radius: 8px; font-size: 0.64rem; }
-}
-@media (max-width: 400px) {
-  .nav-mark { width: 23px; height: 23px; border-radius: 7px; font-size: 0.58rem; }
-}
