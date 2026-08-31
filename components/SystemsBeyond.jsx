@@ -6,23 +6,25 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 // Entering from TruMac: a short "archive room" intro, then the project files
 // emerge progressively and stack with slight overlap. Desktop hover expands
 // the active file (summary + metadata) and compresses the inactive ones.
+const DOMAINS = ['Fintech', 'Gov-Tech', 'Recovery', 'Insurance', 'Ed-Tech', 'Legal'];
+
 const SYSTEMS = [
-  { i: '01', name: 'Wealth Management Platform', domain: 'Fintech · EBIXCash', year: '2024', logo: '/logos/ebixcash.png',
+  { i: '01', name: 'Wealth Management Platform', tag: 'Fintech', domain: 'Fintech · EBIXCash', year: '2024', logo: '/logos/ebixcash.png',
     insight: 'The decision surface for relationship managers, where each interface choice carries direct financial consequence for high-net-worth clients.',
     meta: ['Wealth · capital markets', 'Web · advisor console', 'Product design'] },
-  { i: '02', name: 'Enterprise Legal Case Management', domain: 'Legal Tech', year: '2023', logo: null,
+  { i: '02', name: 'Enterprise Legal Case Management', tag: 'Legal', domain: 'Legal Tech', year: '2023', logo: null,
     insight: 'Domain vocabulary had to be learned before wireframing began. Case-state logic determined the architecture, not UI patterns.',
     meta: ['Legal operations', 'Web · case management', 'UX + research'] },
-  { i: '03', name: 'Secure Debt', domain: 'Recovery Operations', year: '2022', logo: '/logos/securedebt.png',
+  { i: '03', name: 'Secure Debt', tag: 'Recovery', domain: 'Recovery Operations', year: '2022', logo: '/logos/securedebt.png',
     insight: 'Data existed; prioritization did not. Agents needed to know which case to pursue first, not see everything at once.',
     meta: ['Debt recovery', 'Web · agent tooling', 'Product design'] },
-  { i: '04', name: 'Insure Efficient', domain: 'InsurTech', year: '2022', logo: '/logos/insure.png',
+  { i: '04', name: 'Insure Efficient', tag: 'Insurance', domain: 'InsurTech', year: '2022', logo: '/logos/insure.png',
     insight: 'Policy complexity belongs in the underwriting engine, not the user journey. Simplification was an architectural decision.',
     meta: ['Insurance · B2C + B2B', 'Web + mobile', 'End-to-end design'] },
-  { i: '05', name: 'Sikho Kamana', domain: 'EdTech', year: '2021', logo: '/logos/sikho.png',
+  { i: '05', name: 'Sikho Kamana', tag: 'Ed-Tech', domain: 'EdTech', year: '2021', logo: '/logos/sikho.png',
     insight: 'Skill platforms lose users after intent, not motivation. The friction lives after the decision, not before it.',
     meta: ['Education · mobile', 'iOS + Android', 'Product design'] },
-  { i: '06', name: 'Samarth', domain: 'Gov-Tech · National scale', year: '2022', logo: '/logos/samarth.png',
+  { i: '06', name: 'Samarth', tag: 'Gov-Tech', domain: 'Gov-Tech · National scale', year: '2022', logo: '/logos/samarth.png',
     insight: 'A government recruitment and onboarding platform serving users meeting public digital infrastructure for the first time.',
     meta: ['Government · national', 'Web · public', 'UX design'] },
 ];
@@ -30,6 +32,7 @@ const SYSTEMS = [
 export default function SystemsBeyond() {
   const ref = useRef(null);
   const [active, setActive] = useState(0);
+  const [filter, setFilter] = useState(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.85', 'start 0.2'] });
   // intro "entering the archive room" line
   const introOp = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
@@ -49,13 +52,31 @@ export default function SystemsBeyond() {
           </p>
         </motion.div>
 
+        {/* Domain chips — a recruiter hiring for fintech can isolate fintech
+            instead of reading all six. Dims rather than removes, so the shape
+            of the whole body of work stays visible. */}
+        <div className="arch-chips">
+          <button
+            className={`font-mono arch-chip${filter === null ? ' is-on' : ''}`}
+            onClick={() => setFilter(null)}
+          >All</button>
+          {DOMAINS.map((d) => (
+            <button
+              key={d}
+              className={`font-mono arch-chip${filter === d ? ' is-on' : ''}`}
+              onClick={() => setFilter(filter === d ? null : d)}
+            >{d}</button>
+          ))}
+        </div>
+
         {/* Stacked archive files */}
         <div onMouseLeave={() => {}} style={{ position: 'relative' }}>
           {SYSTEMS.map((s, idx) => {
             const isActive = active === idx;
+            const dimmed = filter !== null && s.tag !== filter;
             return (
               <motion.div key={s.i}
-                onMouseEnter={() => setActive(idx)}
+                onMouseEnter={() => !dimmed && setActive(idx)}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -63,11 +84,11 @@ export default function SystemsBeyond() {
                 style={{
                   position: 'relative',
                   marginTop: idx === 0 ? 0 : -1,
-                  background: isActive ? 'var(--bg-2)' : 'transparent',
+                  background: isActive && !dimmed ? 'var(--bg-2)' : 'transparent',
                   borderTop: '1px solid var(--rule)',
                   borderBottom: idx === SYSTEMS.length - 1 ? '1px solid var(--rule)' : 'none',
                   cursor: 'default',
-                  transition: 'background 360ms ease',
+                  transition: 'background 360ms ease, opacity 360ms ease, filter 360ms ease',
                   zIndex: isActive ? 2 : 1,
                 }}>
                 <div style={{
@@ -75,7 +96,9 @@ export default function SystemsBeyond() {
                   gridTemplateColumns: '64px 1.1fr 1.3fr',
                   gap: 28, alignItems: 'start',
                   padding: isActive ? '34px 28px' : '24px 28px',
-                  transition: 'padding 360ms ease',
+                  opacity: dimmed ? 0.26 : 1,
+                  filter: dimmed ? 'saturate(0.25)' : 'none',
+                  transition: 'padding 360ms ease, opacity 360ms ease, filter 360ms ease',
                 }} className="archive-grid">
                   <span className="plate-no" style={{ color: isActive ? 'var(--accent)' : 'var(--ink-3)', transition: 'color 360ms ease', paddingTop: 4 }}>{s.i}</span>
                   <div>
@@ -86,9 +109,13 @@ export default function SystemsBeyond() {
                     <span className="label">{s.domain} · {s.year}</span>
                   </div>
                   <div>
-                    <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: 0 }}>{s.insight}</p>
-                    {/* metadata revealed on active */}
-                    <motion.div initial={false} animate={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }} transition={{ duration: 0.4, ease: 'easeOut' }} style={{ overflow: 'hidden' }}>
+                    {/* Insight and metadata both wait for hover. Six insight
+                        paragraphs shown at once is a wall of text and makes the
+                        list unscannable; it also left the hover with almost no
+                        payoff. Collapsed, the archive reads as six tight rows
+                        and hovering actually rewards you. */}
+                    <motion.div initial={false} animate={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }} transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }} style={{ overflow: 'hidden' }}>
+                      <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: 0 }}>{s.insight}</p>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 18px', marginTop: 16 }}>
                         {s.meta.map(m => (
                           <span key={m} className="font-mono" style={{ fontSize: '0.68rem', letterSpacing: '0.04em', color: 'var(--ink-3)', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
@@ -97,6 +124,12 @@ export default function SystemsBeyond() {
                         ))}
                       </div>
                     </motion.div>
+                    {/* a hint of what is behind the row, always visible */}
+                    {!isActive && (
+                      <span className="font-mono" style={{ fontSize: '0.62rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink-3)', opacity: 0.7 }}>
+                        {s.meta[0]}
+                      </span>
+                    )}
                   </div>
                 </div>
               </motion.div>
