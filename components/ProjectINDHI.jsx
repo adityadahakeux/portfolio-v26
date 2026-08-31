@@ -14,7 +14,7 @@ export default function ProjectINDHI() {
   const wipe = { initial: { clipPath: 'inset(0 0 100% 0)' }, animate: inView ? { clipPath: 'inset(0 0 0% 0)' } : {} };
 
   return (
-    <section ref={ref} style={{ position: 'relative', background: 'var(--bg-2)', paddingTop: 90, paddingBottom: 90, overflow: 'hidden' }}>
+    <section id="indhi" ref={ref} style={{ position: 'relative', background: 'var(--bg-2)', paddingTop: 90, paddingBottom: 90, overflow: 'hidden' }}>
       {/* blueprint grid + connection ambience */}
       <div aria-hidden style={{ position: 'absolute', inset: 0, opacity: 0.6, backgroundImage: 'linear-gradient(rgba(244,245,247,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(244,245,247,0.04) 1px, transparent 1px)', backgroundSize: '38px 38px' }} />
       <div aria-hidden style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 50% 60% at 25% 40%, rgba(130,120,240,0.12) 0%, transparent 60%)' }} />

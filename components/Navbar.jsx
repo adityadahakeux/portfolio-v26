@@ -17,7 +17,12 @@ export default function Navbar() {
     on(); window.addEventListener('scroll', on, { passive: true });
     return () => window.removeEventListener('scroll', on);
   }, []);
-  const go = (href) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  const go = (href) => {
+    const el = document.querySelector(href);
+    if (!el) return;
+    if (window.__lenis) window.__lenis.scrollTo(el, { offset: -80 });
+    else el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <motion.header
@@ -30,7 +35,7 @@ export default function Navbar() {
       style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, borderBottom: '1px solid transparent', backdropFilter: scrolled ? 'blur(20px) saturate(1.6)' : 'none', WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(1.6)' : 'none' }}
     >
       <div className="wrap-wide" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 18, paddingBottom: 18 }}>
-        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        <button onClick={() => (window.__lenis ? window.__lenis.scrollTo(0) : window.scrollTo({ top: 0, behavior: 'smooth' }))}
           className="font-display nav-brand" style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, letterSpacing: '-0.01em' }}>
           Aditya Dahake
         </button>

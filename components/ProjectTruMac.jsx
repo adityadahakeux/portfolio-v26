@@ -17,7 +17,7 @@ export default function TruMac() {
   const warm = useTransform(scrollYProgress, [0.55, 1], [0, 0.6]);
 
   return (
-    <section ref={ref} style={{ position: 'relative', height: '175vh', background: 'var(--bg)' }}>
+    <section id="trumac" ref={ref} style={{ position: 'relative', height: '175vh', background: 'var(--bg)' }}>
       <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', paddingTop: 48 }}>
         {/* warming credit glow */}
         <motion.div aria-hidden style={{ position: 'absolute', inset: 0, opacity: warm, background: 'radial-gradient(ellipse 50% 55% at 50% 50%, rgba(79,141,247,0.14) 0%, transparent 62%)' }} />

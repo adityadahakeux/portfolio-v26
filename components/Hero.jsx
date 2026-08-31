@@ -88,7 +88,7 @@ export default function Hero({ start = true }) {
   const reveal = (d) => ({ initial: { y: '115%' }, animate: start ? { y: 0 } : {}, transition: { duration: 1.05, delay: d, ease: EASE } });
 
   return (
-    <section className="hero-im">
+    <section id="top" className="hero-im">
       <canvas ref={netRef} className="net" aria-hidden="true" />
       <div className="glow" aria-hidden="true" />
       <div className="grid" aria-hidden="true" />

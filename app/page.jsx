@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
+import ProgressRail from '@/components/ProgressRail';
 import SmoothScroll from '@/components/SmoothScroll';
 import LoadingSequence from '@/components/LoadingSequence';
 import Hero from '@/components/Hero';
@@ -29,6 +30,7 @@ export default function Home() {
       <SmoothScroll>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: ready ? 1 : 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
           <Navbar />
+          <ProgressRail />
           <main>
             <Hero start={ready} />
             <LogoStrip />

@@ -15,6 +15,8 @@ export default function SmoothScroll({ children }) {
       touchMultiplier: 1.6,
     });
 
+    window.__lenis = lenis;
+
     let raf;
     const loop = (time) => { lenis.raf(time); raf = requestAnimationFrame(loop); };
     raf = requestAnimationFrame(loop);
@@ -31,7 +33,7 @@ export default function SmoothScroll({ children }) {
     };
     document.addEventListener('click', onClick);
 
-    return () => { cancelAnimationFrame(raf); lenis.destroy(); document.removeEventListener('click', onClick); };
+    return () => { cancelAnimationFrame(raf); lenis.destroy(); delete window.__lenis; document.removeEventListener('click', onClick); };
   }, []);
 
   return children;
