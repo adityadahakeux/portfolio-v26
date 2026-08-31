@@ -475,3 +475,75 @@ h1, h2, h3, h4, h5 {
   color: var(--accent); border-color: rgba(79,141,247,0.55);
   background: rgba(79,141,247,0.1);
 }
+
+/* ---- Before / after wipe ------------------------------------------------ */
+.ba-sec { position: relative; padding: 88px 0 92px; background: var(--bg-2); }
+.ba-head { max-width: 640px; margin-bottom: 40px; }
+.ba-h2 { margin: 16px 0 16px; font-size: clamp(1.6rem, 3.2vw, 2.5rem); font-weight: 600;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.14; }
+.ba-p { margin: 0; font-size: 0.975rem; line-height: 1.7; color: var(--ink-2); max-width: 520px; }
+
+.ba-frame {
+  position: relative; overflow: hidden; border-radius: 12px;
+  border: 1px solid var(--rule); background: #fff;
+  aspect-ratio: 16 / 10; cursor: ew-resize; user-select: none;
+  box-shadow: 0 34px 70px -34px rgba(0,0,0,0.9);
+}
+.ba-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center; display: block;
+  pointer-events: none;
+}
+.ba-clip { position: absolute; inset: 0; }
+
+.ba-tag {
+  position: absolute; top: 14px; z-index: 3;
+  padding: 6px 12px; border-radius: 100px;
+  background: rgba(11,13,17,0.82); backdrop-filter: blur(6px);
+  border: 1px solid rgba(244,245,247,0.18);
+  font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #F4F5F7; transition: opacity 0.3s ease; pointer-events: none;
+}
+.ba-tag-before { left: 14px; }
+.ba-tag-after { right: 14px; }
+
+.ba-handle {
+  position: absolute; top: 0; bottom: 0; z-index: 4;
+  width: 2px; margin-left: -1px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 0 18px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+.ba-grip {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(11,13,17,0.9); border: 1.5px solid rgba(255,255,255,0.85);
+  color: #fff; cursor: ew-resize; pointer-events: auto;
+  display: flex; align-items: center; justify-content: center; gap: 3px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.55);
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease;
+}
+.ba-grip:hover { transform: translate(-50%, -50%) scale(1.08); }
+.ba-grip.is-dragging { transform: translate(-50%, -50%) scale(0.94); }
+.ba-grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.ba-arrow { font-size: 1.15rem; line-height: 1; opacity: 0.9; }
+
+/* a small nudge until it has been touched, so it reads as draggable */
+.ba-grip.is-nudging { animation: baNudge 2.6s ease-in-out infinite; }
+@keyframes baNudge {
+  0%, 62%, 100% { transform: translate(-50%, -50%) scale(1); }
+  72% { transform: translate(calc(-50% - 6px), -50%) scale(1); }
+  84% { transform: translate(calc(-50% + 6px), -50%) scale(1); }
+}
+
+.ba-foot { margin: 20px 0 0; font-size: 0.6rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-3); }
+
+@media (max-width: 760px) {
+  .ba-sec { padding: 68px 0 70px; }
+  .ba-frame { aspect-ratio: 4 / 3; }
+  .ba-grip { width: 40px; height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ba-grip.is-nudging { animation: none; }
+}

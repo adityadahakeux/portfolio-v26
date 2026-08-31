@@ -8,6 +8,7 @@ import LoadingSequence from '@/components/LoadingSequence';
 import Hero from '@/components/Hero';
 import LogoStrip from '@/components/LogoStrip';
 import EbixJourney from '@/components/EbixJourney';
+import BeforeAfter from '@/components/BeforeAfter';
 import { Unwrap } from '@/components/ScrollFX';
 import ProjectARC from '@/components/ProjectARC';
 import ProjectINDHI from '@/components/ProjectINDHI';
@@ -35,6 +36,7 @@ export default function Home() {
             <Hero start={ready} />
             <LogoStrip />
             <EbixJourney />
+            <Unwrap><BeforeAfter /></Unwrap>
             <Unwrap><ProjectARC /></Unwrap>
             <Unwrap><ProjectINDHI /></Unwrap>
             <TruMac />
