@@ -103,6 +103,8 @@ export default function BeforeAfter() {
               <span className="ba-arrow">‹</span>
               <span className="ba-arrow">›</span>
             </button>
+            {/* retires permanently once the handle has been used */}
+            {!touched && <span className="font-mono ba-hint">Drag</span>}
           </div>
         </motion.div>
 
